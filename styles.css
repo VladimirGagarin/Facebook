@@ -1,7 +1,7 @@
 /* General Styles */
 body, html {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
     margin: 0;
     padding: 0;
 
@@ -138,9 +138,10 @@ body, html {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    background-color: #333;
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
     padding: 10px;
     color: white;
+    border-bottom: 2px solid #fff;
 }
 
 .menu-div {
@@ -239,7 +240,7 @@ li img{
   bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: black;
+  background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
@@ -349,7 +350,7 @@ li img{
 }
 
 main{
-  background: #333;
+  background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
 }
 .section.active {
   display: block;
