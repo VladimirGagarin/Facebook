@@ -1,0 +1,1649 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
+}
+
+#header {
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    transition: background 0.3s ease-in-out;
+    border-bottom:2px solid #fff ;
+}
+
+#header:hover {
+    background: linear-gradient(to right, #004494 0%, #06b3b0 100%);
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#header h1 img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    position: relative;
+    display: block;
+}
+
+.menu-icon::before, .menu-icon::after {
+    content: '';
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+}
+
+.menu-icon::before {
+    top: -8px;
+}
+
+.menu-icon::after {
+    bottom: -8px;
+}
+
+#nav {
+    display: flex;
+}
+
+#nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+#nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+#nav a.active{
+    color: gold;
+}
+
+
+
+#songs, #slideshows {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    min-height: 500px;
+}
+
+#nav li a:hover .data-link {
+    display: inline;
+}
+
+.data-link {
+    position: absolute;
+    right: 50px;
+    top: 5px;
+    font-size: 1.2em;
+    display: none; /* Initially hidden */
+    background-color: rgba(15, 12, 12, 0.753);
+}
+
+#nav li a i {
+    font-size: 25px;
+    margin: 10px 10px;
+ }
+
+@media (max-width: 800px) {
+    #menu-toggle {
+        display: block;
+    }
+
+    #nav {
+        position: absolute;
+        top: 90px;
+        left: -100%;
+        background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
+        width: 100%;
+        height: calc(100vh - 60px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.3s ease;
+        z-index: 1;
+        
+    }
+
+    #menu-toggle:checked + #nav {
+        left: 0;
+    }
+
+    #nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #nav li a i {
+        font-size: 30px;
+        margin: 10px 10px;
+    }
+    
+    .data-link {
+        position: absolute;
+        right: 150px;
+        top: 150px;
+        font-size: 1.2em;
+        display: none; /* Initially hidden */
+        background-color: rgba(15, 12, 12, 0.753);
+    }
+
+}
+
+
+/*====================================================================================================================*/
+
+/* General styles for the section */
+section#home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    min-height: 500px;
+    display: block;
+}
+
+#userdiv {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    margin: 50px auto;
+    text-align: center;
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#userCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#username {
+    position: relative;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Arial', sans-serif;
+    z-index: 1;
+    padding-top: 25px;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
+    }
+}
+
+@media (max-width: 800px) {
+    section#home{
+        min-height: 400vh;
+    
+    }
+}
+/*===================================================================================================================*/
+
+
+#magicEffect {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    overflow: hidden;
+    background-color: #333; /* Background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    transform: translateY(100px);
+}
+
+#magicEffect p {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+canvas#magiic-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: transparent; /* Set the background color to transparent */
+}
+
+/* Responsive design for small screens */
+@media (max-width: 800px) {
+    #magicEffect {
+        height: 60vh; /* Reduce height for small screens */
+        font-size: 18px; /* Reduce font size for small screens */
+        width: 100%;
+        transform: translateY(100px);
+    }
+
+    #magicEffect p {
+        top: 5px; /* Adjust top position for smaller screens */
+        font-size: 16px; /* Reduce font size for the paragraph */
+    }
+}
+
+/*==================================================================================================================*/
+/* Container and General Styles */
+.friends {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
+    border-top: 2px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    padding: 20px 0;
+    transform: translateY(200px);
+}
+
+.friends h2 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Container for Friend Cards */
+#friendsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 1000px;
+    margin-top: 20px;
+}
+
+/* Container and General Styles */
+.friends {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%);
+    border-top: 2px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    padding: 20px 0;
+    transform: translateY(200px);
+    margin-bottom: 200px;
+}
+
+.friends h2 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container for Friend Cards */
+#friendsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 1000px;
+    margin-top: 20px;
+}
+
+/* Friend Card Styles */
+.friend {
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    perspective: 1000px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    cursor: pointer;
+    animation: cardFadeIn 0.6s ease-in-out forwards;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.friend img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Front and Back Styles */
+.friend-front, .friend-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.9s ease-in-out, opacity 0.9s ease-in-out;
+}
+
+.friend-front {
+    background: #fff;
+}
+
+.friend-back {
+    background: #0056b3;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    padding: 2px;
+    text-align: center;
+}
+
+.friend-back p {
+    margin: 10px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Hover Effects */
+.friend:hover .friend-front {
+    transform: rotateY(180deg);
+}
+
+.friend:hover .friend-back {
+    transform: rotateY(0);
+    z-index: 2;
+    transform: scale(1.07);
+}
+
+/* Initial State */
+#friendsContainer .friend {
+    transform: rotateY(-10deg);
+}
+
+/* Keyframe for Fade-in Animation */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsive design */
+@media (max-width: 800px) {
+    section#home {
+        flex-direction: column;
+    }
+
+    #magicEffect {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .friends {
+        margin-top: 10px;
+        background-color: #333;
+        height: 150vh;
+        overflow-y: auto;
+        scrollbar-width: none; /* Thin scrollbar */
+        scrollbar-color: #f804bb #f30303; /* Thumb and track colors */
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .friends::-webkit-scrollbar {
+        width: none; /* Width of the scrollbar */
+    }
+    
+    .friends::-webkit-scrollbar-track {
+        background: #1e3a8a; /* Background of the track */
+        border-radius: 10px; /* Rounded corners */
+    }
+    
+    .friends::-webkit-scrollbar-thumb {
+        background: #2563eb; /* Color of the thumb */
+        border-radius: 10px; /* Rounded corners */
+        border: 3px solid #1e3a8a; /* Padding around thumb */
+    }
+    
+    .friends::-webkit-scrollbar-thumb:hover {
+        background: #1e40af; /* Hover color */
+    }
+
+    #friendsContainer {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    #friendsContainer .friend {
+        transform:none;
+    }
+
+    .friend {
+        width: 80%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .friend-front, .friend-back {
+        position: static;
+        width: 100%;
+        height: auto;
+        backface-visibility: visible;
+        transform: none;
+    }
+
+    .friend-back {
+        display: block;
+        width: 99%;
+        transform: none;
+        background-color: #fff;
+        color: #0056b3;
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space: nowrap;
+    }
+
+    .friend:hover .friend-front {
+        transform: none;
+    }
+
+    .friend:hover .friend-back {
+        background-color: #0056b3;
+        color: #fff;
+    }
+}
+
+/*====================================================================================================================*/
+
+@keyframes cardFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.friend.animate {
+    transform: rotateY(180deg); /* Animation for flip effect */
+    animation: cardFadeIn 0.6s ease-in-out forwards;
+    opacity: 1; /* Ensure fade-in effect */
+}
+
+/*====================================================================================================================*/
+
+
+.user-card {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    position: relative;
+    cursor: pointer;
+    transform: translateY(50px);
+}
+
+.user-card:hover {
+    background-color: #08cdca;
+}
+
+.user-card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+}
+
+.user-card-front {
+    background-color: transparent;
+}
+
+.user-card-back {
+    background-color: #0056b3;
+    transform: rotateY(180deg);
+}
+
+#username {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#userBio {
+    text-align: center;
+}
+
+/*==================================================================================================================*/
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden;
+    background-color: #000; /* Optional: background color */
+    margin-bottom: 30px;
+    color: #0056b3;
+    margin-top: 50px;
+}
+
+canvas#magiic-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99%;
+    height: 99%;
+    display: block;
+}
+
+footer a {
+    position: absolute;
+    bottom: 20px;
+    left: 40%;
+    transform: translate(-10%, -300px);
+    color: #fff; /* Text color */
+    text-decoration: none; /* No underline */
+    font-size: 16px; /* Font size */
+    background-color: #0056b3; /* Optional: background for better visibility */
+    padding: 10px 20px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    width: 25%;
+    min-height: 5vh;
+    font-weight: bold;
+    padding-left: 40px;
+    margin-top: 60px;
+    font-size: 30px;
+}
+
+@media (max-width:800px) {
+    footer {
+        width: 100%;
+        transform: translateY(100px);
+    }
+
+    footer a {
+        width: 60%;
+        left: 20%;
+        font-size: 18px;
+    }
+}
+/*=========================================================================================================================*/
+#songs {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    background: transparent; 
+    color: #fff;
+    min-height: 350vh;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    
+}
+.song-card{
+    background: linear-gradient(145deg, #ecedef, #cbd5e0);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: #0056b3;
+    width: calc(33.333% - 20px);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+}
+.song-cards{
+    background: linear-gradient(145deg, #333, #520163);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: #0056b3;
+    width: calc(33.333% - 20px);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+}
+
+.song-card:hover,
+.song-cards:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    
+}
+
+.upload-song {
+    background: rgb(80, 8, 69);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: calc(33.333% - 20px);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.upload-song:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.upload-song label {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.upload-song label:hover {
+    background: #1e40af;
+}
+
+.upload-song input[type="file"] {
+    display: none;
+}
+
+.song-card .logo ,
+.song-cards .logo{
+    background: url('logon.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    border-radius: 15px 15px 0 0;
+}
+
+.song-card h3,
+.song-cards h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #0056b3;
+}
+
+.song-card .song-audio {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.song-card .duration {
+    font-size: 1.5em;
+    margin: 5px 0;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.song-card .details {
+    margin-top: 20px;
+    width: 100%;
+
+}
+.song-card:hover .duration{
+    display: none;
+}
+
+.song-card .deeper-details {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.song-card:hover .deeper-details {
+    display: flex;
+}
+
+.song-card button {
+    background: #2563eb;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 5px 0;
+}
+
+.song-card button:hover {
+    background: #1e40af;
+}
+
+.song-card canvas {
+    background: rgba(16, 14, 14, 0.9);
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    height: 10vh;
+}
+
+.song-card.playing {
+    background: linear-gradient(145deg, #05f7b2, #1cfe03);
+    background: url('logo2.jfif') no-repeat center center;
+}
+
+.song-card.playing h3{
+    color: rgb(112, 22, 125);
+}
+.song-card.playing .duration{
+    color: gold;
+    background-color: #000;
+}
+
+@media (max-width: 1024px) {
+    .song-card, .upload-song {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 800px) {
+    #songs, #slideshows {
+        width: 90%;
+        scrollbar-width: none;
+    }
+    .song-card, .upload-song {
+        width: 97%;
+        transform: translateX(-50px);
+    }
+
+    .song-card .deeper-details {
+        display: flex;
+    }
+    .song-card,
+    .song-cards{
+        transform: none;
+    }
+
+    .song-card:hover .duration{
+        display: block;
+    }
+
+    .selected-song .song-carded .del-pick-container {
+        transform: translateY(-20px);
+    }
+}
+
+
+/*========================================================================================================================*/
+
+main{
+    background: linear-gradient(to right, #0056b3 0%, #08cdca 100%); 
+    min-height: 200vh;
+}
+
+/*============================================================================================================================*/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.swap-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px;
+    transition: transform 1s;
+}
+
+.show-overlay {
+    visibility: visible;
+    
+}
+
+@keyframes swapPosition {
+	0%,
+	100% {
+		transform: translateY(0) rotate(0);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateY(-30px) rotate(6deg);
+	}
+
+	30% {
+		transform: translateY(15px) rotate(-6deg);
+	}
+
+	45% {
+		transform: translateY(-15px) rotate(3.6deg);
+	}
+
+	60% {
+		transform: translateY(9px) rotate(-2.4deg);
+	}
+
+	75% {
+		transform: translateY(-6px) rotate(1.2deg);
+	}
+}
+
+/*===================================================================================================================*/
+#slideshows {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-bottom: 30px;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+#slideshows h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+#slideshows p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.selected-song, .friends-view {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+.selected-song::-webkit-scrollbar, .friends-view::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.selected-song .song-carded {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    background-image: url('logon.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensure background image covers the entire element */
+    background-position: center; /* Center the background image */
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    scrollbar-width: none;
+    
+}
+
+
+.selected-song .song-carded h3,
+.selected-song .song-carded .play-button,
+.selected-song .song-carded .delete-button,
+.selected-song .song-carded .pickButton,
+.selected-song .song-carded .del-pick-container {
+    position: relative; /* Ensure these elements are positioned relative to .song-carded */
+    z-index: 2; /* Ensure these elements are above the overlay */
+    text-align: center; /* Center text horizontally */
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    overflow: hidden;    /* Hides the overflow text */
+    text-overflow: ellipsis; /* Adds ellipsis (...) */
+}
+
+
+
+.selected-song .song-carded::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    border-radius: 10px;
+    z-index: 1; /* Ensure overlay is behind content */
+}
+
+.selected-song .song-carded img {
+    display: none; /* Hide img element to ensure only the background image is visible */
+}
+
+.selected-song .song-carded:hover {
+    transform: scale(1.05);
+}
+
+.selected-song .song-carded .del-pick-container {
+    display: flex;
+    justify-content: space-between; /* Pushes the buttons to the far left and right */
+    align-items: center; /* Aligns the buttons vertically in the center */
+    margin-top: 40px;
+    
+}
+
+/*=================================================================================================================*/
+
+.friends-view .friend-card {
+    flex: 0 0 auto;
+    width: 200px; /* Adjust width for smaller size */
+    height: 200px; /* Adjust height for smaller size */
+    background-color: #0056b3;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    
+}
+
+.friends-view .friend-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.friends-view .friend-card:hover {
+    transform: scale(1.05);
+}
+
+/* Style for the checkbox */
+.friend-checkbox {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px; /* Adjust width as needed */
+    height: 25px; /* Adjust height as needed */
+    opacity: 1; /* Hide the actual checkbox */
+    cursor: pointer;
+    z-index: 1; /* Ensure checkbox is above background */
+}
+/*====================================================================================================================*/
+
+.slideshow-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.slideshow-1, .slideshow-2, .slideshow-3 {
+    min-height: 500px; /* Adjust height as needed */
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+}
+
+#slideshows h4{
+    animation:changeColor 10s linear infinite;
+    background-color: #000;
+    text-transform: capitalize;
+}
+
+@keyframes changeColor {
+    to{
+        color:gold;
+    }
+    from{
+        color: red;
+    }
+}
+
+/* Style for delete button */
+.song-carded .delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #ff0000; /* Red color for delete button */
+    z-index: 2;
+    
+}
+
+.selected-song .song-carded .play-button {
+    background: transparent; /* Semi-transparent white background */
+    border: none;
+    font-size: 1.95rem;
+    cursor: pointer;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 999;
+}
+
+.song-carded .delete-button:hover {
+    color: #ff5555;
+}
+
+/* Style for the select button when selected */
+.song-card button.selected {
+    background-color: #d3d3d3; /* Light gray background for selected state */
+    color: #000; /* Black text color for selected state */
+    cursor: not-allowed;
+}
+
+.slideshow-1 h2, .slideshow-2 h2, .slideshow-3 h2 {
+    font-size: 1.3em;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.slideshow-1 button, .slideshow-2 button, .slideshow-3 button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slideshow-1 button:hover, .slideshow-2 button:hover, .slideshow-3 button:hover {
+    background-color: #000;
+}
+
+.slideshow-1 .all-friends-slideshow {
+    margin-top: 20px;
+}
+
+/* Add this to your existing CSS */
+.slideshow-1 button:disabled, .slideshow-2 button:disabled, .slideshow-3 button:disabled {
+    background-color: rgb(255, 0, 242);
+    cursor: not-allowed;
+}
+
+button:disabled {
+    background-color: rgb(255, 0, 242);
+    cursor: not-allowed;
+}
+/* Media query for small screens */
+@media (max-width: 800px) {
+    .selected-song .song-carded,
+    .friends-view .friend-card {
+        width: 120px; /* Adjust width for smaller screens */
+        height: 120px; /* Adjust height for smaller screens */
+    }
+
+    .selected-song .song-carded h3,
+    .selected-song .song-carded .play-button,
+    .selected-song .song-carded .delete-button,
+    .selected-song .song-carded .pickButton {
+       font-size: 12px;
+    }
+}
+
+
+
+/*=============================================================================================================================================*/
+
+/* Updated CSS for loading indicator */
+.loading-indicator {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 14, 14, 0.5); /* Semi-transparent white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.loading-indicator img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    animation: spin 4s ease-in-out 0s 3 alternate both;
+}
+
+/* Keyframes for spin animation */
+@keyframes spin {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateX(48px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateX(26px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateX(13px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateX(6.5px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateX(4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87%,
+	98% {
+		animation-timing-function: ease-out;
+		transform: translateX(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+/*=======================================================================================================================*/
+
+/* Basic styling for the slideshow container */
+.all-friends-slideshow {
+    position: relative;
+    width: 100%;
+    min-height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+    background-image: url('logon.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Black overlay for the background image */
+.all-friends-slideshow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity as needed */
+    z-index: 1; /* Overlay should be behind the images */
+}
+
+/* Styling for the images in the slideshow */
+.all-friends-slideshow img {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    opacity: 0;
+    margin-bottom: 30px;
+    z-index: 2; /* Images should be on top of the background */
+}
+
+
+@keyframes fadeSlide {
+	0% {
+		opacity: 0;
+		transform: translateX(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeSlideEven {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes rotateSlide {
+	0% {
+		opacity: 0;
+		transform: rotate(-540deg) scale(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotate(0) scale(1);
+	}
+}
+
+@keyframes fadeSlideOdd {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes anime {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 0;
+		transform: translateY(250px);
+	}
+
+	38% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	55% {
+		animation-timing-function: ease-in;
+		transform: translateY(65px);
+	}
+
+	72% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	81% {
+		animation-timing-function: ease-in;
+		transform: translateY(28px);
+	}
+
+	90% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	95% {
+		animation-timing-function: ease-in;
+		transform: translateY(8px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slowmotion {
+	0% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes animatia {
+	0% {
+		opacity: 0;
+		transform: translateY(250px) rotate(200deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0) rotate(0deg);
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px) rotate(-200deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0) rotate(0deg);
+	}
+}
+
+@keyframes fadeIns {
+	0% {
+		opacity: 0;
+		transform: translateX(250px) rotate(200deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0) rotate(0deg);
+	}
+}
+
+@keyframes magic {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px) rotate(-200deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0) rotate(0deg);
+	}
+}
+
+@keyframes magicTwo {
+	0% {
+		transform: scaleX(0);
+		transform-origin: 0% 0%;
+	}
+
+	100% {
+		transform: scaleX(1);
+		transform-origin: 0% 0%;
+	}
+}
+
+@keyframes magicThree {
+	0% {
+		transform: scaleX(0);
+		transform-origin: 100% 100%;
+	}
+
+	100% {
+		transform: scaleX(1);
+		transform-origin: 100% 100%;
+	}
+}
+
+@keyframes magicFour {
+	0% {
+		transform: scale(2);
+		transform-origin: 100% 50%;
+	}
+
+	100% {
+		transform: scale(1);
+		transform-origin: 100% 50%;
+	}
+}
+
+@keyframes myAnim {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateY(45px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateY(24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateY(12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateY(6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateY(4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes magicFive {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 50%;
+	}
+
+	10% {
+		transform: rotate(8deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-10deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(10deg);
+	}
+
+	80% {
+		transform: rotate(-8deg);
+	}
+
+	90% {
+		transform: rotate(8deg);
+	}
+}
+
+/* Fade Slide Odd */
+@keyframes fadeSlideOdd {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotate Slide */
+@keyframes rotateSlide {
+    0% {
+        opacity: 0;
+        transform: rotate(-540deg) scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+
+/* Add more keyframes as needed for additional animations */
+
+/*===================================================================================================================*/
+
+/* Basic styling for the slideshow container */
+.one-friend-slideshow{
+    position: relative;
+    width: 100%;
+    min-height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+    background-image: url('logo2.jfif'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Black overlay for the background image */
+.one-friend-slideshow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity as needed */
+    z-index: 1; /* Overlay should be behind the images */
+}
+
+/* Styling for the images in the slideshow */
+.one-friend-slideshow img {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    opacity: 0;
+    margin-bottom: 30px;
+    z-index: 2; /* Images should be on top of the background */
+}
+/*===========================================================================================*/
+
+.get-videos{
+    position: relative;
+    width: 100%;
+    min-height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+    background-image: url('musical.png'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Black overlay for the background image */
+.get-videos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity as needed */
+    z-index: 1; /* Overlay should be behind the images */
+}
+
+/* Styling for the images in the slideshow */
+.get-videos img {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    opacity: 0;
+    margin-bottom: 30px;
+    z-index: 2; /* Images should be on top of the background */
+}
