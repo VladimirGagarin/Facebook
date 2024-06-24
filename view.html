@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scale='no'">
+    <link rel="stylesheet" href="view.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"> <!-- Font Awesome CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="view.js" defer></script>
+    
+    <title>Magical Friend View</title>
+</head>
+<body>
+    <header id="header">
+        <h1> <img src="logo.png" alt="logo">Magical Friend</h1>
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span class="menu-icon"></span>
+        </button>
+        <nav id="nav" aria-label="Main navigation">
+            <ul>
+                <li>
+                    <a href="#home" class="active">
+                        <i class="fas fa-home"></i> 
+                        <span class="data-link">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#songs">
+                        <i class="fas fa-music"></i> 
+                        <span class="data-link">Songs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#slideshows">
+                        <i class="fas fa-images"></i> 
+                        <span class="data-link">Slideshows</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div id="overlay" class="overlay">
+            <div class="loading-content">
+                <img id="logo" src="logo2.jfif" alt="Logo" class="swap-image">
+                <img id="userImage" src="" alt="User Image" class="swap-image">
+
+                <h2>Hold on we lost your magic</h2>
+            </div>
+        </div>
+        <div class="loading-indicator">
+            <img src="logo2.jfif" alt="loading">
+        </div>
+    </header>
+    <main>
+        <!-- Main content goes here -->
+        <section id="home">
+            <div id="userdiv">
+                <canvas id="userCanvas"></canvas>
+                <p id="username"></p>
+            </div>
+            <div class="user-card">
+                <div class="user-card-front user-card-content">
+                    <img id="userImages" src="logo.png" alt="User Image" style="width: 100px; height: 100px; border-radius: 50%;">
+                    <p id="username"></p>
+                </div>
+                <div class="user-card-back user-card-content">
+                    <p id="userBio">User Bio Here</p>
+                </div>
+            </div>
+            <div id="magicEffect">
+                <canvas id="magiic-1"></canvas>
+            </div>
+            <div class="friends">
+                <h2>Friends</h2>
+            <div id="friendsContainer"></div>
+            </div>
+        </section>
+        <section id="songs">
+            <div class="upload-song song-cards">
+                <div class="logo"></div>
+                <h3>Use your song</h3>
+                <label for="getUserSong"> &#10133; Add here</label>
+                <input type="file" name="songInput" id="getUserSong" accept=".mp3">
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Adiemus Enya</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Adiemus  Adiemus Enya.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Akon ft Michael Jackson</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Akon ft Michael Jackson  Hold my Hand Lyrics.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Alan Walker  Play</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Alan Walker  Play Lyrics ft K391 Tungevaag Mangoo.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Christina Perri  A Thousand Years</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Christina Perri  A Thousand Years Official Music Video.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Céline Dion  Ashes from Deadpool 2</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Céline Dion  Ashes from Deadpool 2 Motion Picture Soundtrack.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Céline Dion  Thats The Way It Is</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Céline Dion  Thats The Way It Is Official Video.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Céline Dion  To Love You More</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Céline Dion  To Love You More Official Audio.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Don Omar  Danza Kuduro</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Don Omar  Danza Kuduro Instrumental Original HQ.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Elektronomia  Sky High</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Elektronomia  Sky High  Progressive House  NCS  Copyright Free Music.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Enrique Iglesias  Hero</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Enrique Iglesias  Hero.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Enya  Only Time Instrumental</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Enya  Only Time Instrumental.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Enya  Only Time</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Enya  Only Time Official 4K Music Video.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Wild Child Instrumental.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Enya  Wild Child Instrumental.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Wild Child.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Enya  Wild Child Official Music Video.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Friendships.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Friendships.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Hans Zimmer  Remember.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Hans Zimmer  Remember From The Lion KingAudio Only.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Heart of Courage.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Heart of Courage.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Iggy Azalea  Quavo  Savior Instrumental.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Iggy Azalea  Quavo  Savior Instrumental.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Iggy Azalea  Quavo  Savior.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Iggy Azalea  Savior ft Quavo Lyric Video.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Jim Yosef  Let You Go.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Jim Yosef  Let You Go  Synthpop  NCS  Copyright Free Music.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Jim Yosef  Link  House.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Jim Yosef  Link  House  NCS  Copyright Free Music (1).mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Julius Dreisig  Zeus X Crona  Invisible.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Julius Dreisig  Zeus X Crona  Invisible  Trap  NCS  Copyright Free Music.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Alan Walker Play Instrumental.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - K391 Alan Walker  Tungevaag  Play feat Mangoo Instrumental.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>  Katy Perry  Unconditionally.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Katy Perry  Unconditionally Lyrics.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Kelly Clarkson  Stronger.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Kelly Clarkson  Stronger What Doesnt Kill You Official Video.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Leona Lewis  Better in Time.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Leona Lewis  Better in Time Official Video (2).mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Michael Jackson  Hold My Hand Instrumental.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Michael Jackson  Hold My Hand Instrumental.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Most Epic Music Ever.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Most Epic Music Ever The Wolf And The Moon  BrunuhVille (1).mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>One Direction  Story of My Life.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - One Direction  Story of My Life Lyrics.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Pachelbel  Canon In D Major.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Pachelbel  Canon In D Major Best version.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>P!nk Try.</h3>
+                <div class="song-audio">
+                    <audio src="pink try.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Shania Twain  From This Moment.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Shania Twain  From This Moment On.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Strauss  The Blue Danube.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Strauss  The Blue Danube Waltz.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Simply The Best  Tina Turner.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - The Best  Tina Turner Lyrics.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Greatest Showman Tightrope.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - The Greatest Showman Cast  Tightrope Official Audio.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Hall Of Fame.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - The Script  Hall Of Fame Lyrics.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>TU HAI.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - TU HAI Video Song  MOHENJO DARO  AR RAHMANSANAH MOIDUTTY  Hrithik Roshan  Pooja Hegde.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Flight of the Silverbird.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Two Steps From Hell  Flight of the Silverbird (1).mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Two Steps From Hell Victory.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Two Steps From Hell  Victory.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Vitaa ft Slimane avant toi.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Vitaa ft Slimane avant toi Instrumental by Mr Panther (1).mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Wiz Khalifa  See You Again.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Wiz Khalifa  See You Again ft Charlie Puth Official Video Furious 7 Soundtrack.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3> Yiruma  Kiss the Rain.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Yiruma  Kiss the Rain lyrics.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-card">
+                <div class="logo"></div>
+                <h3>Yiruma 이루마  River Flows.</h3>
+                <div class="song-audio">
+                    <audio src="y2mate.com - Yiruma 이루마  River Flows in You.mp3"></audio>
+                </div>
+                <div class="duration">0:00</div>
+                <div class="details">
+                    <div class="deeper-details">
+                        <button>&#9655;</button>
+                        <button>Select</button>
+                        <canvas class="visualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>   
+        <section id="slideshows">
+            <div class="selected-song">
+                <h2>Your songs.</h2>
+            </div>
+            <h4>Add song to experience the magic.</h4>
+            <div class="friends-view">
+                <h2>Your friends.</h2>
+                <br>
+            </div>
+            <div class="slideshow-1">
+                <h2>Select one song and see the magic.</h2>
+                <button type="button" id="slide-friends">Click here first</button>
+                <div class="all-friends-slideshow"></div>
+            </div>
+            <div class="slideshow-2">
+                <h2>choose one friend and one song that resonate your friendship.</h2>
+                <button id="one-friend-slideshow-btn">Start Here</button>
+                <div class="one-friend-slideshow"></div>
+            </div>
+            <div class="slideshow-3">
+                <h2>Your videos will be here </h2>
+                <button id="get-video">Get Video</button>
+                <div class="get-videos"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <canvas id="magiic-2"></canvas>
+        <a href="index.html">&#10133; Create Friends</a>
+    </footer>
+</body>
+</html>
